@@ -1,0 +1,103 @@
+FORMAT: 1A
+HOST: http://meta.datravel.com/
+
+# DaTravel Meta API
+
+Move your app forward with the DaTravel Meta API.
+
+## Open routes [/v2/meta/routes{?partner,password}]
++ Parameters
+    + partner (string) - partner identifier
+    + password (string) - partner password
+
+### Retrieve list of open routes [GET]
+
++ Response 200 (application/json)
+
+        [{
+            "origin": "MOW",
+            "destination": "PAR"
+        }, {
+            "origin": "MOW",
+            "destination": "NCE"
+        }]
+
+
+## Finders [/api/search/{?from,to,date1,date2,adults,children,infants,cabin,partner,password}]
++ Parameters
+    + from: `MOW` (string, required) - origin IATA code
+    + to: `NCE` (string) - destination IATA code
+    + date1: `2016-11-26` (string) - outbound date, format YYYY-MM-DD
+    + date2: `2016-12-04` (string, optional) - inbound date for round-trip flights, format YYYY-MM-DD
+    + adults: `2` (integer) - number of adult paxes
+    + children: `1` (integer, optional) - number of child paxes
+    + infants: `0` (integer, optional) - number of infant paxes
+    + cabin: `C` (char) - class of services, supported values: Y - Economy, C - Business, F - First
+    + partner (string) - partner identifier
+    + password (string) - partner password
+
+### Retrieve list of available air tickets [GET]
+Retrieve a list of available air tickets by itinerary. For each request you should also specifiy number of passengers.
++ Response 200 (text/xml)
+
+        <variants>
+            <variant>
+                <price>146060</price>
+                <currency>RUB</currency>
+                <url>
+                    https://www.datravel.com/add/booking/26NOV16MOWNCE04DEC16AD2CH2SCBIDa13094a255c9bfcfe537d52ea8522001-10PKEY            </url>
+                <validatingCarrier>AF</validatingCarrier>
+                <segment>
+                    <flight>
+                        <operatingCarrier>AF</operatingCarrier>
+                        <number>1745</number>
+                        <departure>SVO</departure>
+                        <departureDate>2016-11-26</departureDate>
+                        <departureTime>19:45</departureTime>
+                        <arrival>CDG</arrival>
+                        <arrivalDate>2016-11-26</arrivalDate>
+                        <arrivalTime>21:45</arrivalTime>
+                        <equipment>319</equipment>
+                        <cabin>C</cabin>
+                    </flight>
+                    <flight>
+                        <operatingCarrier>AF</operatingCarrier>
+                        <number>6206</number>
+                        <departure>ORY</departure>
+                        <departureDate>2016-11-27</departureDate>
+                        <departureTime>09:20</departureTime>
+                        <arrival>NCE</arrival>
+                        <arrivalDate>2016-11-27</arrivalDate>
+                        <arrivalTime>10:40</arrivalTime>
+                        <equipment>321</equipment>
+                        <cabin>C</cabin>
+                    </flight>
+                </segment>
+                <segment>
+                    <flight>
+                        <operatingCarrier>AF</operatingCarrier>
+                        <number>6211</number>
+                        <departure>NCE</departure>
+                        <departureDate>2016-12-04</departureDate>
+                        <departureTime>11:30</departureTime>
+                        <arrival>ORY</arrival>
+                        <arrivalDate>2016-12-04</arrivalDate>
+                        <arrivalTime>12:55</arrivalTime>
+                        <equipment>321</equipment>
+                        <cabin>C</cabin>
+                    </flight>
+                    <flight>
+                        <operatingCarrier>AF</operatingCarrier>
+                        <number>1844</number>
+                        <departure>CDG</departure>
+                        <departureDate>2016-12-04</departureDate>
+                        <departureTime>16:00</departureTime>
+                        <arrival>SVO</arrival>
+                        <arrivalDate>2016-12-04</arrivalDate>
+                        <arrivalTime>21:40</arrivalTime>
+                        <equipment>319</equipment>
+                        <cabin>C</cabin>
+                    </flight>
+                </segment>
+            </variant>
+        </variants>
