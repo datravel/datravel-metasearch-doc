@@ -23,18 +23,18 @@ Move your app forward with the DaTravel Meta API.
         }]
 
 
-## Finders [/api/search/{?from,to,date1,date2,adults,children,infants,cabin,partner,password}]
+## Finders [/search/{?from,to,date1,date2,adults,children,infants,cabin,partner,password}]
 + Parameters
-    + from: `MOW` (string, required) - origin IATA code
-    + to: `NCE` (string) - destination IATA code
-    + date1: `2016-11-26` (string) - outbound date, format YYYY-MM-DD
-    + date2: `2016-12-04` (string, optional) - inbound date for round-trip flights, format YYYY-MM-DD
-    + adults: `2` (integer) - number of adult paxes
-    + children: `1` (integer, optional) - number of child paxes
-    + infants: `0` (integer, optional) - number of infant paxes
-    + cabin: `C` (char) - class of services, supported values: Y - Economy, C - Business, F - First
-    + partner (string) - partner identifier
-    + password (string) - partner password
+    + from: `MOW` (string) - Origin IATA code.
+    + to: `NCE` (string) - Destination IATA code.
+    + date1: `2016-06-17` (string) - Outbound date, format YYYY-MM-DD.
+    + date2: `2016-06-26` (optional, string) - Inbound date for round-trip flights, format YYYY-MM-DD.
+    + adults: `2` (integer) - Number of adult paxes.
+    + children: `1` (optional, integer) - Number of child paxes.
+    + infants: `1` (optional, integer) - Number of infant paxes.
+    + cabin: `Y` (char) - Class of services, supported values: Y - Economy, C - Business, F - First.
+    + partner: `PARTNER` (string) - Partner login.
+    + password: `PASSWORD` (string) - Partner password.
 
 ### Retrieve list of available air tickets [GET]
 Retrieve a list of available air tickets by itinerary. For each request you should also specifiy number of passengers.
