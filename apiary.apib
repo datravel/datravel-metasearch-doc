@@ -6,12 +6,15 @@ HOST: http://meta.datravel.com/
 Move your app forward with the DaTravel Meta API.
 
 ## Open routes [/v2/meta/routes{?partner,password}]
+Route is city/airport pair.
+Route is opened on OTA side means that finder request will be executed via air providers (e.g. GDSs) for this route.
+OTA will return empty tickets list for any closed route.
+
 + Parameters
     + partner: `PARTNER` (string) - Partner identifier.
     + password: `PASSWORD` (string) - Partner password.
 
 ### Retrieve list of open routes [GET]
-
 + Response 200 (application/json)
 
         [{
